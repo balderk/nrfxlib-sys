@@ -13,6 +13,12 @@ fn main() {
 	let bindings = bindgen::Builder::default()
 		// The input header we would like to generate
 		// bindings for.
+		// Set the target
+		.clang_arg("-target")
+		.clang_arg("arm")
+		.clang_arg("-mcpu=cortex-m33")
+		// Use softfp
+		.clang_arg("-mfloat-abi=hard")
 		.header("wrapper.h")
 		// Point to Nordic headers
 		.clang_arg(format!("-I{}", nrfxlib_path))
@@ -23,12 +29,6 @@ fn main() {
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_oberon")
 		// Disable standard includes (they belong to the host)
 		.clang_arg("-nostdinc")
-		// Set the target
-		.clang_arg("-target")
-		.clang_arg("arm")
-		.clang_arg("-mcpu=cortex-m33")
-		// Use softfp
-		.clang_arg("-mfloat-abi=hard")
 		// We're no_std
 		.use_core()
 		// Use our own ctypes to save using libc
@@ -91,5 +91,5 @@ fn main() {
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=modem");
-	println!("cargo:rustc-link-lib=static=oberon_3.0.8");
+	println!("cargo:rustc-link-lib=static=oberon_3.0.11");
 }

@@ -1,7 +1,6 @@
 /**
  * These are the header files exported by this crate.
  */
-
 /*
  * libbsd headers
  */

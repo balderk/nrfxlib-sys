@@ -1,4 +1,4 @@
-[target.thumbv8m.main-none-eabi]
+[target.thumbv8m.main-none-eabihf]
 rustflags = [
   "-C", "linker=arm-none-eabi-gcc",
   "-C", "link-arg=-Wl,-Tlink.x",
