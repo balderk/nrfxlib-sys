@@ -4,12 +4,16 @@
 /*
  * libbsd headers
  */
+#include "nrf_modem/include/nrf_errno.h"
+#include "nrf_modem/include/nrf_gai_errors.h"
 #include "nrf_modem/include/nrf_modem.h"
-#include "nrf_modem/include/nrf_modem_limits.h"
+#include "nrf_modem/include/nrf_modem_at.h"
+#include "nrf_modem/include/nrf_modem_delta_dfu.h"
 #include "nrf_modem/include/nrf_modem_full_dfu.h"
+#include "nrf_modem/include/nrf_modem_gnss.h"
+#include "nrf_modem/include/nrf_modem_limits.h"
 #include "nrf_modem/include/nrf_modem_os.h"
 #include "nrf_modem/include/nrf_modem_platform.h"
-#include "nrf_modem/include/nrf_errno.h"
 #include "nrf_modem/include/nrf_socket.h"
 
 /*
@@ -18,8 +22,12 @@
 
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform.h"
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_abort.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_ctr_drbg.h"
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_defines.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_derived_key.h"
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_entropy.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_hmac_drbg.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_identity_key.h"
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_mutex.h"
 
 /*

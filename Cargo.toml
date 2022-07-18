@@ -15,7 +15,7 @@ resolver = "2"
 # The nrfxlib folder is quite large, so only include the pieces we need
 include = [
 	"src/**",
-	"include/**",
+	"third_party/newlib/include/**",
 	"build.rs",
 	"wrapper.h",
 	"*.md",
