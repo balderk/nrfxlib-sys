@@ -1,11 +1,12 @@
 [package]
 name = "nrfxlib-sys"
-version = "1.5.1"
+version = "2.0.0"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
+	"Balder Klanderud <balder@grindoy.no>",
 ]
-edition = "2018"
+edition = "2021"
 description = "Rust bindings to the Nordic nRF9160 Socket Library."
 readme = "README.md"
 license-file = "LICENCE.md"
@@ -35,4 +36,4 @@ include = [
 
 [build-dependencies]
 regex = "1"
-bindgen = "0.56"
+bindgen = "0.60"

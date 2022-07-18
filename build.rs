@@ -28,17 +28,17 @@ fn main() {
 		.clang_arg("arm")
 		.clang_arg("-mcpu=cortex-m33")
 		// Use softfp
-		.clang_arg("-mfloat-abi=soft")
+		.clang_arg("-mfloat-abi=hard")
 		// We're no_std
 		.use_core()
 		// Use our own ctypes to save using libc
 		.ctypes_prefix("ctypes")
 		// Include only the useful stuff
-		.whitelist_function("nrf_.*")
-		.whitelist_function("bsd_.*")
-		.whitelist_type("nrf_.*")
-		.whitelist_var("NRF_.*")
-		.whitelist_var("BSD_.*")
+		.allowlist_function("nrf_.*")
+		.allowlist_function("bsd_.*")
+		.allowlist_type("nrf_.*")
+		.allowlist_var("NRF_.*")
+		.allowlist_var("BSD_.*")
 		// Format the output
 		.rustfmt_bindings(true)
 		// Finish the builder and generate the bindings.
