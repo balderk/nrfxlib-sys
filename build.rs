@@ -12,7 +12,7 @@ fn serialize_firmware(firmware_hex: &str, firmware_name: &str) {
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join(format!("{}.rs", firmware_name));
     let mut out_file = std::fs::OpenOptions::new().append(false).write(true).create(true).open(out_path).unwrap();
     let mut addr_offset: u32 = 0;
-    write!(out_file, "const {}: [Firmware; {}_SIZE] = [\n", firmware_name, firmware_name).unwrap();
+    write!(out_file, "pub const {}: [Firmware; {}_SIZE] = [\n", firmware_name, firmware_name).unwrap();
     let mut firmware_len = 0;
     let mut buffer = Vec::new();
     let data_target_len = 1000;
@@ -47,7 +47,7 @@ fn serialize_firmware(firmware_hex: &str, firmware_name: &str) {
         firmware_len += 1;
         write!(out_file, "    Firmware {{ addr: {}, data: &{:?} }},\n", addr, buffer.as_slice()).unwrap()
     }
-    write!(out_file, "];\nconst {}_SIZE: usize = {};\n", firmware_name, firmware_len).unwrap();
+    write!(out_file, "];\npub const {}_SIZE: usize = {};\n", firmware_name, firmware_len).unwrap();
 }
 
 fn main() {
